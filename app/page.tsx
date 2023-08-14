@@ -19,6 +19,7 @@ export default async function Home() {
     const { data } = await supabase
         .from("tweets")
         .select("*, author: profiles(*), likes(user_id)")
+        .order("created_at", { ascending: false })
 
     const tweets =
         data?.map((tweet) => ({
@@ -31,10 +32,13 @@ export default async function Home() {
         })) ?? []
 
     return (
-        <>
-            <AuthButtonServer />
-            <NewTweet />
+        <div className="flex flex-col w-full mx-auto">
+            <div className="flex justify-between px-10 pt-4">
+                <h1 className="text-xl font-bold">Home</h1>
+                <AuthButtonServer />
+            </div>
+            <NewTweet user={session.user} />
             <Tweets tweets={tweets} />
-        </>
+        </div>
     )
 }

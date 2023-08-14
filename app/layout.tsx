@@ -13,7 +13,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <div className="bg-slate-50 dark:bg-gray-900 min-h-screen flex">
+                    {children}
+                </div>
+            </body>
         </html>
     )
 }

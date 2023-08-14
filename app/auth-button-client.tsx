@@ -28,9 +28,19 @@ export default function AuthButtonClient({
 
     return session ? (
         <>
-            <button onClick={handleSignOut}>Logout</button>
+            <button
+                onClick={handleSignOut}
+                className="text-xs text-inherit dark:text-gray-300 border dark:border-inherit border-slate-800 rounded px-2 h-8"
+            >
+                Logout
+            </button>
         </>
     ) : (
-        <button onClick={handleSignIn}>Login</button>
+        <button
+            onClick={handleSignIn}
+            className="text-xs text-inherit dark:text-gray-300 border dark:border-inherit border-slate-800 rounded px-2 h-8"
+        >
+            Login
+        </button>
     )
 }
