@@ -34,7 +34,7 @@ export default async function Home() {
         })) ?? []
 
     return (
-        <div className="flex flex-col w-full mx-auto">
+        <div className="flex flex-col border-0 sm:border sm:max-w-xl w-full mx-auto">
             <div className="flex justify-between px-10 pt-4">
                 <h1 className="text-xl font-bold">Home</h1>
                 <AuthButtonServer />
