@@ -13,7 +13,10 @@ export default function GithubButton() {
             },
         })
     }
-    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+    let isDarkMode
+    if (window !== undefined) {
+        isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+    }
 
     return (
         <button
