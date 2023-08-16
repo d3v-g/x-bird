@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { addTweet } from "./actions"
+import { addTweet } from "@/app/actions"
 
 export default function FormClient() {
     const [error, setError] = useState<{ message: string } | null>(null)
