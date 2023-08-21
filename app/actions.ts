@@ -6,22 +6,26 @@ import { createServerActionClient } from "@supabase/auth-helpers-nextjs"
 export const addTweet = async (formData: FormData) => {
     const title = String(formData.get("title"))
     const supabase = createServerActionClient<Database>({ cookies })
+
     const {
         data: { user },
     } = await supabase.auth.getUser()
+
+    if (!user) {
+        throw new Error("No user found")
+    }
+
     if (!title) {
-        const error = { message: "Please enter a title" }
-        return { error }
+        return { error: { message: "Please enter a title" } }
     }
-    if (title && user) {
-        try {
-            const { error } = await supabase
-                .from("tweets")
-                .insert({ title, user_id: user.id })
-            if (error) throw new Error(error.message)
-        } catch (error) {
-            console.error(error)
-        }
-        revalidatePath("/")
+
+    try {
+        const { error } = await supabase
+            .from("tweets")
+            .insert({ title, user_id: user.id })
+        if (error) throw new Error(error.message)
+    } catch (error) {
+        console.error(error)
     }
+    revalidatePath("/")
 }
