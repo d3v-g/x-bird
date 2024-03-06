@@ -1,8 +1,6 @@
 import NewTweet from "@/components/feed/new-tweet"
 import Tweets from "@/components/feed/tweets"
 import AuthButtonServer from "@/components/shared/auth-button-server"
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import supabaseServer from "../supabaseServer"
 
