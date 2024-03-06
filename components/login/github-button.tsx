@@ -21,13 +21,14 @@ export default function GithubButton() {
     return (
         <button
             onClick={handleSignIn}
-            className="hover:bg-slate-200 dark:hover:bg-gray-600 hover:rounded-xl hover:p-4"
+            className="w-28 h-28 flex items-center justify-center ease-in-out transition-all hover:bg-slate-200 dark:hover:bg-gray-600 hover:rounded-xl hover:p-4"
         >
             <Image
                 src={isDarkMode ? "/github-mark-white.png" : "/github-mark.png"}
                 alt="github logo"
                 height={100}
                 width={100}
+                className=""
             />
         </button>
     )
